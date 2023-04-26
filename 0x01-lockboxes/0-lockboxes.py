@@ -22,7 +22,7 @@ def canUnlockAll(boxes):
             current_keys = current_keys.union(boxes[i])
             continue
         elif i < len(boxes) - 1 and i not in current_keys:
-            # iterate throught the whole set to check if i is in a corresponding box-key
+            # iterate throught set to check if i is in a corresponding box-key
             unlockable = False
             for key in current_keys:
                 if i in boxes[key]:
