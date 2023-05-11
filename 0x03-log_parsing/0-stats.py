@@ -20,6 +20,7 @@ def line_parser(line):
     args = line.split(' ')
     return args
 
+
 def validate_ip(ip):
     ip = ip.split('.')
     if len(ip) != 4:
@@ -32,15 +33,17 @@ def validate_ip(ip):
             return False
     return True
 
+
 def validate_date(*args):
     date = ''.join(args)
-    date = date.replace('[','' )
+    date = date.replace('[', '')
     date = date.replace(']', '')
     try:
         date_obj = datetime.strptime(date, '%Y-%m-%d%H:%M:%S.%f')
         return True
     except Exception as e:
         return False
+
 
 def validate_codes(code):
     try:
@@ -50,6 +53,7 @@ def validate_codes(code):
     except Exception as e:
         return False
 
+
 def validate_size(size):
     try:
         size = int(size)
@@ -57,19 +61,34 @@ def validate_size(size):
     except Exception as e:
         return False
 
+
+def validate_hyphen(arg):
+    if arg == '-':
+        return True
+    else:
+        return False
+
+
 def print_metrics(size, status_dict):
     print("File size: {}".format(size))
     if status_dict:
-        for k,v in sorted(status_dict.items()):
+        for k, v in sorted(status_dict.items()):
             if v != 0:
                 print("{}: {}".format(k, v))
+
+
 try:
     while True:
         line = sys.stdin.readline().strip()
         if not line:
             break
         args = line_parser(line)
-        if validate_ip(args[0]) and validate_date(args[2], args[3]) and validate_codes(args[7]) and validate_size(args[8]):
+        if (validate_ip(args[0]) and
+            validate_hyphen(args[1]) and
+            validate_date(args[2], args[3]) and
+            validate_codes(args[7])
+            and validate_size(args[8])):
+            # confirms that log line format is okay
             prev_size = int(args[8])
             size += prev_size
             current_code = args[7]
