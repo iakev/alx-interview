@@ -13,8 +13,11 @@ def validUTF8(data):
     if not valid
     """
     for number in data:
-        number_bin = "{0:08b}".format(number)
+        number_bin = "{0:b}".format(number)
         no_of_digits = len(number_bin)
-        if no_of_digits % 8 != 0:
+        if 1 < no_of_digits <= 7 or\
+                (no_of_digits != 8 and no_of_digits % 8 == 0):
+            continue
+        else:
             return False
     return True
