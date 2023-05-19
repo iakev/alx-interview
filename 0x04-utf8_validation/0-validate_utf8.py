@@ -12,7 +12,7 @@ def validUTF8(data):
     returns True if valid or False
     if not valid
     """
-    print("data is {}".format(data))
+    # print("data is {}".format(data))
     if data == []:
         return False
     valid = helper_validate_utf8(data, True)
