@@ -14,7 +14,7 @@ def validUTF8(data):
     """
     # print("data is {}".format(data))
     if data == []:
-        return False
+        return True
     valid = helper_validate_utf8(data, True)
     return valid
 
