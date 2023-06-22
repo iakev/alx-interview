@@ -26,7 +26,7 @@ def helper_validate_utf8(data, valid):
         return valid
     if valid is False:
         return valid
-    first_byte = "{0:b}".format(data[0])
+    first_byte = "{0:b}".format(data[0],fill=0)
     try:
         first_byte = first_byte[-8:]
     except Exception as e:
