@@ -31,15 +31,28 @@ def isWinner(x, nums):
     players_dict = {'Maria': 0, 'Ben': 0}
     players = ['Maria', 'Ben']
     players_dict_winner = {'Maria': 0, 'Ben': 0}
-    for number in nums:
-        consecutive_int = [i for i in range(1, number + 1)]
-        recursive_play(players[:], players_dict, consecutive_int)
-        maria_wins = players_dict['Maria']
-        ben_wins = players_dict['Ben']
-        if maria_wins == 1:
-            players_dict_winner['Maria'] += 1
-        if ben_wins == 1:
-            players_dict_winner['Ben'] += 1
+    if x == len(nums):
+        for number in nums:
+            consecutive_int = [i for i in range(1, number + 1)]
+            recursive_play(players[:], players_dict, consecutive_int)
+            maria_wins = players_dict['Maria']
+            ben_wins = players_dict['Ben']
+            if maria_wins == 1:
+                players_dict_winner['Maria'] += 1
+            if ben_wins == 1:
+                players_dict_winner['Ben'] += 1
+    else:
+        while x != 0:
+            for number in nums:
+                consecutive_int = [i for i in range(1, number + 1)]
+                recursive_play(players[:], players_dict, consecutive_int)
+                maria_wins = players_dict['Maria']
+                ben_wins = players_dict['Ben']
+                if maria_wins == 1:
+                    players_dict_winner['Maria'] += 1
+                if ben_wins == 1:
+                    players_dict_winner['Ben'] += 1
+            x -= 1
     if players_dict_winner['Maria'] == players_dict_winner['Ben']:
         winner = None
     elif players_dict_winner['Maria'] > players_dict_winner['Ben']:
