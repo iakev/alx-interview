@@ -26,11 +26,13 @@ def isWinner(x, nums):
     """
     Return winner from  the game
     """
+    if x <= 0 or x > 10000:
+        return None
     players_dict = {'Maria': 0, 'Ben': 0}
     players = ['Maria', 'Ben']
     players_dict_winner = {'Maria': 0, 'Ben': 0}
     for number in nums:
-        consecutive_int = [x for x in range(1, number + 1)]
+        consecutive_int = [i for i in range(1, number + 1)]
         recursive_play(players[:], players_dict, consecutive_int)
         maria_wins = players_dict['Maria']
         ben_wins = players_dict['Ben']
