@@ -1,4 +1,10 @@
 #!/usr/bin/python3
+"""
+Module that contains various functions that
+allow to play the Prime Game
+"""
+
+
 def bsd_rand(seed):
     """
     decorator for randomizing
