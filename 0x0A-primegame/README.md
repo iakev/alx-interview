@@ -1,13 +1,27 @@
 # Prime Game
 
-## Maria and Ben are playing a game. Given a set of consecutive integers starting from 1 up to and including n, they take turns choosing a prime number from the set and removing that number and its multiples from the set. The player that cannot make a move loses the game.
+## Introduction
 
-They play `x`rounds of the game, where `n` may be different for each round. Assuming Maria always goes first and both players play optimally, determine who the winner of each game is.
+Welcome to the "Prime Game" project! This repository contains a Python program that deals with prime numbers and a fun prime number game. The program demonstrates how to work with prime numbers and play a simple yet challenging game.
 
-### Prototype
-`def isWinner(x, nums)`
-- where `x` is the number of rounds and `nums` is an array of `n`
-- **Return**: name of the player that won the most rounds
-- If the winner cannot be determined, return `None`
-- Assume `n` and `x` not larger than 1000
+## Program Descriptions
 
+### [0-prime_game.py](https://github.com/iakev/alx-interview/blob/main/0x0A-primegame/0-prime_game.py)
+
+The `0-prime_game.py` program contains the main logic for the prime number game. It prompts the player to guess prime numbers within a specified range. Players earn points for guessing prime numbers correctly and can compete to see who can score the most points.
+
+## Compiling and Executing
+
+To run the program in this repository, you'll need to have Python installed on your system.
+
+### Example for executing `0-prime_game.py`:
+
+```shell
+python 0-prime_game.py
+```
+
+Simply run the program with Python to explore and play the prime number game.
+
+## Contributing
+
+Contributions to this project are welcome! If you have improvements, additional features, or bug fixes in mind, please feel free to open a pull request.
